@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>BetterEventSystem</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>addikted</Authors>
+        <Company>addikted</Company>
+        <Title>Better Event System</Title> 
+        <Description>
+            Create an event system that is flexible and easy to use.
+        </Description>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>

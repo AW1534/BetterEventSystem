@@ -4,48 +4,52 @@ using BetterEventSystem.Exceptions;
 
 namespace BetterEventSystem {
 
+    public class EventArgs {
+        string sender;
+    }
+
     [Serializable]
     public class Event {
-        public bool allowAsync;
-        public string name;
-        List<Action> listeners = new List<Action>();
+        public bool AllowAsync;
+        public string Name;
+        List<Action<EventArgs>> _listeners = new List<Action<EventArgs>>();
 
-        public Event(String name, bool allowAsync = true) {
-            this.name = name;
-            this.allowAsync = allowAsync;
-            EventHandler.events.Add(this);
+        public Event(String name, bool allowAsync = true, bool register = true) {
+            this.Name = name;
+            this.AllowAsync = allowAsync;
+            if (register) { EventSystem.Events.Add(this); }
         }
         
-        public void AddListener(Action listener) {
-            listeners.Add(listener);
+        public void AddListener(Action<EventArgs> listener) {
+            _listeners.Add(listener);
         }
         
-        public void RemoveListener(Action listener) {
-            listeners.Remove(listener);
+        public void RemoveListener(Action<EventArgs> listener) {
+            _listeners.Remove(listener);
         }
 
-        public void BroadcastAsync() {
-            foreach (var item in listeners) {
-                if (allowAsync) {
-                    item.BeginInvoke(null, null);
+        public void BroadcastAsync(EventArgs args = null) {
+            foreach (var item in _listeners) {
+                if (AllowAsync) {
+                    Task.Run(() => item(args));
                 } else {
-                    new BroadcastException("async not allowed in event");
+                    throw new BroadcastException("async not allowed in event");
                 }
             }
         }
 
-        public void BroadcastSync() {
-            foreach (var item in listeners) {
-                item.Invoke();
+        public void BroadcastSync(EventArgs args = null) {
+            foreach (var item in _listeners) {
+                item.Invoke(args);
             }
         }
 
-        public void Broadcast() {
-            foreach (var item in listeners) {
-                if (allowAsync) {
-                    item.BeginInvoke(null, null);
+        public void Broadcast(EventArgs args = null) {
+            foreach (var item in _listeners) {
+                if (AllowAsync) {
+                    Task.Run(() => item(args));
                 } else {
-                    item.Invoke();
+                    item.Invoke(args);
                 }
             }
         }
