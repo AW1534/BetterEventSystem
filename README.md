@@ -37,8 +37,8 @@ Console.ReadKey();
 Console.Clear();
 
 // trigger the event
-EventSystem.GetEvent("my_event").Broadcast();
 EventSystem.GetEvent("my_other_event").Broadcast();
+EventSystem.GetEvent("my_event").Broadcast();
 ```
 ---
 Output:
