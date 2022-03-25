@@ -40,8 +40,8 @@ EventSystem.GetEvent("my_other_event").AddListener((e) => {
 
 
 Console.Write("Press any key to trigger events...");
-Console.ReadKey();
-Console.Clear();
+Console.ReadKey(); // wait for user input
+Console.Clear(); // clear the console
 
 // trigger the event
 EventSystem.GetEvent("my_other_event").Broadcast();
