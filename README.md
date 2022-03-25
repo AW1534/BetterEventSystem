@@ -15,6 +15,8 @@ If the event allows async (which it does by default), then the event will be bro
 You can call
 `Event.BroadcastSync()` or `Event.BroadcastAsync()` to be explicit about the async nature of the broadcast.
 
+You can pass any object to any of the broadcast methods, and it will be passed to all listeners in the `EventArgs.data` property.
+
 
 ---
 ## Example:
@@ -54,4 +56,4 @@ my_event was triggered
 ```
 
 There are other things you can do with events, I will create more detailed docs on readthedocs soon.
-The code is pretty self explanitory, so check out the [github](https://github.com/AW1534/BetterEventSystem)!
+The code is pretty self explanatory, so check out the [github](https://github.com/AW1534/BetterEventSystem)!
