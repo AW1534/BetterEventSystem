@@ -10,6 +10,11 @@ To get the event instance, simply call `EventSystem.GetEvent("my_event")`. this 
 
 ---
 Finally, to broadcast / trigger the event, simply call `Event.Broadcast()`.
+If the event allows async (which it does by default), then the event will be broadcasted asynchronously.
+
+You can call
+`Event.BroadcastSync()` or `Event.BroadcastAsync()` to be explicit about the async nature of the broadcast.
+
 
 ---
 ## Example:
@@ -47,3 +52,6 @@ my_other_event was triggered
 my_event was triggered, but I'm a different listener
 my_event was triggered
 ```
+
+There are other things you can do with events, I will create more detailed docs on readthedocs soon.
+The code is pretty self explanitory, so check out the [github](https://github.com/AW1534/BetterEventSystem)!
