@@ -23,14 +23,17 @@
     
     <ItemGroup>
       <Compile Remove="Docs\**" />
+      <Compile Remove="docs\**" />
     </ItemGroup>
     
     <ItemGroup>
       <EmbeddedResource Remove="Docs\**" />
+      <EmbeddedResource Remove="docs\**" />
     </ItemGroup>
     
     <ItemGroup>
       <None Remove="Docs\**" />
+      <None Remove="docs\**" />
     </ItemGroup>
 
 </Project>
