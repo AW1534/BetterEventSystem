@@ -11,7 +11,7 @@
         </Description>
         <RepositoryUrl>https://github.com/AW1534/BetterEventSystem.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageLicenseUrl>https://github.com/AW1534/BetterEventSystem/blob/main/LICENSE</PackageLicenseUrl>
+        <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
     </PropertyGroup>
     
     <PropertyGroup>
