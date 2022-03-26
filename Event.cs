@@ -25,7 +25,7 @@ namespace BetterEventSystem {
             this.AllowAsync = allowAsync;
             if (register) { EventSystem.Events.Add(this); }
         }
-        
+
         public void AddListener(Action<EventArgs> middleware) {
             _listeners.Add(middleware);
         }

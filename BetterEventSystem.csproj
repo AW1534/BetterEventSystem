@@ -2,13 +2,16 @@
 
     <PropertyGroup>
         <PackageId>BetterEventSystem</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.1.0</Version>
         <Authors>addikted</Authors>
         <Company>addikted</Company>
-        <Title>Better Event System</Title> 
+        <Title>Better Event System</Title>
         <Description>
             Create an event system that is flexible and easy to use.
         </Description>
+        <RepositoryUrl>https://github.com/AW1534/BetterEventSystem.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseUrl>https://github.com/AW1534/BetterEventSystem/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
     
     <PropertyGroup>
@@ -17,5 +20,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    
+    <ItemGroup>
+      <Compile Remove="Docs\**" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <EmbeddedResource Remove="Docs\**" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="Docs\**" />
+    </ItemGroup>
 
 </Project>
