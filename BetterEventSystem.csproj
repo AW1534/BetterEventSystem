@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>BetterEventSystem</PackageId>
-        <Version>1.1.0</Version>
+        <Version>1.1.1</Version>
         <Authors>addikted</Authors>
         <Company>addikted</Company>
         <Title>Better Event System</Title>
@@ -11,7 +11,7 @@
         </Description>
         <RepositoryUrl>https://github.com/AW1534/BetterEventSystem.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
+        <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     </PropertyGroup>
     
     <PropertyGroup>

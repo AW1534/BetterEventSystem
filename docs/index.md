@@ -22,7 +22,7 @@ BetterEventSystem is a simple, easy to use library, with a simple API. simple ta
 
 ---
 
-Open source 🌐
+**Open source 🌐**
 ^^^
 Nothing spooky, nothing scary, BetterEventSystem is open source, and licensed under a very permissive [license](https://github.com/AW1534/BetterEventSystem/blob/main/LICENSE).
 
