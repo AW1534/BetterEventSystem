@@ -42,4 +42,4 @@ EventSystem.GetEvent("event_name").Broadcast(data);
 ```
 you can pass any object you want to the event, and it will be passed to all listeners/middlewares through the EventArgs.data property.
 
-Thats all for now, check out the [API reference](/reference.md) to see how to extend the functionality of your project.
+That's all for now, check out the [API reference](/reference.md) to see how to extend the functionality of your project.
