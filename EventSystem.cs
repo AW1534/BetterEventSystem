@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 namespace BetterEventSystem {
     public static class EventSystem {
-        public static void Main() {}
-        
-        
+
         public static List<Event> Events = new List<Event>();
 
         public static Event GetEvent(String eventName, bool safe = true) {
@@ -27,7 +25,7 @@ namespace BetterEventSystem {
             }
         }
 
-        private static Event Register(Event e) {
+        public static Event Register(Event e) {
             Events.Add(e);
             return e;
         }

@@ -23,7 +23,7 @@ namespace BetterEventSystem {
         public Event(String name, bool allowAsync = true, bool register = true) {
             this.Name = name;
             this.AllowAsync = allowAsync;
-            if (register) { EventSystem.Events.Add(this); }
+            if (register) { EventSystem.Register(this); }
         }
 
         public void AddListener(Action<EventArgs> listener) {

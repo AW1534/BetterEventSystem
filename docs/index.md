@@ -1,7 +1,6 @@
 # Better Event System
 *Create an extensive Event System with ease*
 
- 
 ````{panels}
 
 **Modern ✨**
@@ -39,4 +38,5 @@ reference.md
 :caption: External Links
 NuGet <https://www.nuget.org/packages/BetterEventSystem>
 GitHub <https://github.com/AW1534/BetterEventSystem>
+Examples <https://github.com/AW1534/BES-examples>
 ```

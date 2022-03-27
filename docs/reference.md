@@ -28,7 +28,27 @@ all the following properties and methods are available in the `Event.` class.
 | RemoveAllMiddleware | `void`          | N/A                                               | Remove all middleware from the event                                                               |
 | RemoveAll           | `void`          | N/A                                               | Remove all listeners and middleware                                                                |
 | Broadcast           | `void`          | `object` data = null                              | Broadcast the event to all listeners, passing the data to all inside the `EventArgs.data` property |
+---
+
+### Properties
+| **Name**   | **Type**  | **Description**                                      |
+|------------|-----------|------------------------------------------------------|
+| Name       | `String`  | The name of the event                                |
+| AllowAsync | `Boolean` | Whether or not to allow async calls to the listeners |
 
 ## Event System
 The event system is the heart of the BetterEventSystem.
+It is a static class that contains all the events and their listeners.
 The following properties and methods are available in the `EventSystem.` class.
+
+### Methods
+| **Name**  | **Return Type** | **Parameters**                    | **Description**                                            |
+|-----------|-----------------|-----------------------------------|------------------------------------------------------------|
+| Get Event | `Event`         | `String` name, `bool` safe = true | Get an event by name, creating the event if `safe` is true |
+| Register  | `Event`         | `Event` event                     | Register an event                                          |
+---
+
+### Properties
+| **Name** | **Type**      | **Description**          |
+|----------|---------------|--------------------------|
+| Events   | `List<Event>` | A list of all the events |

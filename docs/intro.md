@@ -36,6 +36,7 @@ EventSystem.GetEvent("event_name").AddListener((e) => {
 });
 ```
 A listener is a function that is called when the event is fired.
+All listeners are called in the order they were added.
 
 ---
 ### Broadcasting / emitting an event
