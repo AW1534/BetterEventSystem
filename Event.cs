@@ -7,7 +7,7 @@ namespace BetterEventSystem {
         public object sender;
         public object data;
         
-        public EventArgs(object sender, object data) {
+        public EventArgs(object data) {
             this.sender = sender;
             this.data = data;
         }
@@ -26,20 +26,20 @@ namespace BetterEventSystem {
             if (register) { EventSystem.Events.Add(this); }
         }
 
-        public void AddListener(Action<EventArgs> middleware) {
-            _listeners.Add(middleware);
+        public void AddListener(Action<EventArgs> listener) {
+            _listeners.Add(listener);
         }
         
-        public void AddMiddleware(Action<EventArgs, Action<EventArgs>> listener) {
-            _middleware.Add(listener);
+        public void AddMiddleware(Action<EventArgs, Action<EventArgs>> middleware) {
+            _middleware.Add(middleware);
         }
         
         public void RemoveListener(Action<EventArgs> listener) {
             _listeners.Remove(listener);
         }
         
-        private void RemoveMiddleware(Action<EventArgs, Action<EventArgs>> listener) {
-            _middleware.Remove(listener);
+        private void RemoveMiddleware(Action<EventArgs, Action<EventArgs>> middleware) {
+            _middleware.Remove(middleware);
         }
         
         public void RemoveAllListeners() {
@@ -74,9 +74,8 @@ namespace BetterEventSystem {
             return args;
         }
 
-        public void BroadcastAsync(object sender = null, object data = null) {
-            if (sender == null) { sender = this; }
-            EventArgs args = new EventArgs(sender, data);
+        public void BroadcastAsync(object data = null) {
+            EventArgs args = new EventArgs(data);
             args = RunMiddleware(args);
             foreach (var item in _listeners) {
                 if (AllowAsync) {
@@ -87,20 +86,19 @@ namespace BetterEventSystem {
             }
         }
 
-        public void BroadcastSync(object sender = null, object data = null) {
-            if (sender == null) { sender = this; }
-            EventArgs args = new EventArgs(sender, data);
+        public void BroadcastSync(object data = null) {
+            EventArgs args = new EventArgs(data);
             args = RunMiddleware(args);
             foreach (var item in _listeners) {
                 item.Invoke(args);
             }
         }
 
-        public void Broadcast(object sender = null, object data = null) {
+        public void Broadcast(object data = null) {
             if (AllowAsync) {
-                BroadcastAsync(sender, data);
+                BroadcastAsync(data);
             } else {
-                BroadcastSync(sender, data);
+                BroadcastSync(data);
             }
         }
     }

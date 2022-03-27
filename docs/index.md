@@ -12,7 +12,7 @@ BetterEventSystem is a modern library, with support for asynchronous events.
 
 **Extensive 🔨**
 ^^^
-BetterEventSystem is extensive, with a lot of features that you will never use. but if you do, you got it!
+BetterEventSystem is extensive, with a lot of features that you will never need. but if you do, you got it!
 
 ---
 
@@ -31,9 +31,12 @@ Nothing spooky, nothing scary, BetterEventSystem is open source, and licensed un
 ```{toctree}
 :hidden:
 intro.md
+reference.md
 ```
 
 ```{toctree}
 :hidden:
-reference.md
+:caption: External Links
+NuGet <https://www.nuget.org/packages/BetterEventSystem>
+GitHub <https://github.com/AW1534/BetterEventSystem>
 ```

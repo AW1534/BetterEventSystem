@@ -1,8 +1,10 @@
 # Starter Guide
 *How to get started with BetterEventSystem*
 
+```{seealso}
 This is a short guide to help you get a project up and running.
 you should then go to the [API reference](/reference.md) to extend the functionality of your project.
+```
 
 ## Installation
 Installation is simple. just install `BetterEventSystem` From your nuget package manager.
