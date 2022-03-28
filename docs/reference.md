@@ -4,8 +4,6 @@ This is the API reference for the BetterEventSystem.
 If you are looking for a guide, please refer to the [starter guide](./intro.md).
 ```
 
-*This section is under construction.*
-
 ## Event
 all the following properties and methods are available in the `Event.` class.
 

@@ -31,6 +31,7 @@ Nothing spooky, nothing scary, BetterEventSystem is open source, and licensed un
 :hidden:
 intro.md
 reference.md
+help.md
 ```
 
 ```{toctree}

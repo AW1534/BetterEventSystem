@@ -4,11 +4,10 @@ using BetterEventSystem.Exceptions;
 namespace BetterEventSystem {
 
     public class EventArgs {
-        public object sender;
         public object data;
+        public bool cancel;
         
         public EventArgs(object data) {
-            this.sender = sender;
             this.data = data;
         }
     }
@@ -77,6 +76,7 @@ namespace BetterEventSystem {
         public void BroadcastAsync(object data = null) {
             EventArgs args = new EventArgs(data);
             args = RunMiddleware(args);
+            if (args.cancel) { return; }
             foreach (var item in _listeners) {
                 if (AllowAsync) {
                     Task.Run(() => item(args));
@@ -89,6 +89,7 @@ namespace BetterEventSystem {
         public void BroadcastSync(object data = null) {
             EventArgs args = new EventArgs(data);
             args = RunMiddleware(args);
+            if (args.cancel) { return; }
             foreach (var item in _listeners) {
                 item.Invoke(args);
             }
