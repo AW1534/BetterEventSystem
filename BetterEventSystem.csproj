@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>BetterEventSystem</PackageId>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
         <Authors>addikted</Authors>
         <Company>addikted</Company>
         <Title>Better Event System</Title>
