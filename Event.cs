@@ -1,4 +1,6 @@
-using System.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using BetterEventSystem.Exceptions;
 
 namespace BetterEventSystem {
@@ -19,7 +21,7 @@ namespace BetterEventSystem {
         List<Action<EventArgs, Action<EventArgs>>> _middleware = new List<Action<EventArgs, Action<EventArgs>>>();
         List<Action<EventArgs>> _listeners = new List<Action<EventArgs>>();
 
-        public Event(String name, bool allowAsync = true, bool register = true) {
+        public Event(string name, bool allowAsync = true, bool register = true) {
             this.Name = name;
             this.AllowAsync = allowAsync;
             if (register) { EventSystem.Register(this); }

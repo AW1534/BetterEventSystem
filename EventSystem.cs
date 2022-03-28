@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +15,7 @@ namespace BetterEventSystem {
 
         public static List<Event> Events = new List<Event>();
 
-        public static Event GetEvent(String eventName, bool safe = true) {
+        public static Event GetEvent(string eventName, bool safe = true) {
             foreach (var item in Events) {
                 if (item.Name == eventName) {
                     return item;
