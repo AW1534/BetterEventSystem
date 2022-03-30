@@ -1,0 +1,6 @@
+sphinx==4.4.0
+myst-parser==0.17.0
+sphinx-book-theme
+sphinx-copybutton
+sphinx-panels
+sphinxext-opengraph

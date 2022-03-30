@@ -38,5 +38,9 @@ namespace BetterEventSystem {
             Events.Add(e);
             return e;
         }
+
+        public static void Unregister(Event e) {
+            Events.Remove(e);
+        }
     }
 }

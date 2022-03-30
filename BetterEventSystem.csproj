@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>BetterEventSystem</PackageId>
-        <Version>1.1.2</Version>
+        <Version>1.2.0</Version>
         <Authors>addikted</Authors>
         <Company>addikted</Company>
         <Title>Better Event System</Title>
@@ -20,17 +20,27 @@
     
     <ItemGroup>
       <Compile Remove="Docs\**" />
-      <Compile Remove="docs\**" />
     </ItemGroup>
     
     <ItemGroup>
       <EmbeddedResource Remove="Docs\**" />
-      <EmbeddedResource Remove="docs\**" />
     </ItemGroup>
     
     <ItemGroup>
       <None Remove="Docs\**" />
-      <None Remove="docs\**" />
+      <None Remove=".gitignore" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Content Include="docs\conf.py" />
+      <Content Include="docs\help.md" />
+      <Content Include="docs\index.md" />
+      <Content Include="docs\intro.md" />
+      <Content Include="docs\make.bat" />
+      <Content Include="docs\Makefile" />
+      <Content Include="docs\reference.md" />
+      <Content Include="docs\requirements.txt" />
+      <Content Include="docs\_static\js\script.js" />
     </ItemGroup>
 
 </Project>
