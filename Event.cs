@@ -47,16 +47,16 @@ namespace BetterEventSystem {
             _listeners.Clear();
         }
         
-        public void RemoveAllPreprocessor() {
+        public void RemoveAllPreprocessors() {
             _preprocessor.Clear();
         }
         
         public void RemoveAll() {
             RemoveAllListeners();
-            RemoveAllPreprocessor();
+            RemoveAllPreprocessors();
         }
 
-        private EventArgs RunPreprocessor(EventArgs args) {
+        private EventArgs RunPreprocessors(EventArgs args) {
             List<Action<EventArgs, Action<EventArgs>>> _preprocessor_temp = _preprocessor;
 
             // iterate through each preprocessor and run it, passing the args to the next preprocessor
@@ -77,7 +77,7 @@ namespace BetterEventSystem {
 
         public void BroadcastAsync(object data = null) {
             EventArgs args = new EventArgs(data);
-            args = RunPreprocessor(args);
+            args = RunPreprocessors(args);
             if (args.cancel) { return; }
             foreach (var item in _listeners) {
                 if (AllowAsync) {
@@ -90,7 +90,7 @@ namespace BetterEventSystem {
 
         public void BroadcastSync(object data = null) {
             EventArgs args = new EventArgs(data);
-            args = RunPreprocessor(args);
+            args = RunPreprocessors(args);
             if (args.cancel) { return; }
             foreach (var item in _listeners) {
                 item.Invoke(args);
