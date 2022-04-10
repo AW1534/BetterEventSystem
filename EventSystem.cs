@@ -13,15 +13,15 @@ namespace BetterEventSystem {
             );
         }
 
-        public static List<Event> Events = new List<Event>();
+        public static Dictionary<String, Event> Events = new Dictionary<String, Event>();
 
         public static Event GetEvent(string eventName, bool safe = true) {
-            foreach (var item in Events) {
-                if (item.Name == eventName) {
-                    return item;
-                }
+            // check if the eventName is in the dictionary
+            if (Events.ContainsKey(eventName)) {
+                return Events[eventName];
             }
-
+            
+            // if the eventName is not in the dictionary, either create it throw an exception
             if (safe) {
                 return new Event(
                     name: eventName,
@@ -35,12 +35,12 @@ namespace BetterEventSystem {
         }
 
         public static Event Register(Event e) {
-            Events.Add(e);
+            Events.Add(e.Name, e);
             return e;
         }
 
         public static void Unregister(Event e) {
-            Events.Remove(e);
+            Events.Remove(e.Name);
         }
     }
 }

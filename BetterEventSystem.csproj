@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageId>BetterEventSystem</PackageId>
+        <PackageId>Addikted.BetterEventSystem</PackageId>
         <Version>1.2.0</Version>
         <Authors>addikted</Authors>
         <Company>addikted</Company>

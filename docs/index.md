@@ -37,7 +37,7 @@ help.md
 ```{toctree}
 :hidden:
 :caption: External Links
-NuGet <https://www.nuget.org/packages/BetterEventSystem>
+NuGet <https://www.nuget.org/packages/Addikted.BetterEventSystem>
 GitHub <https://github.com/AW1534/BetterEventSystem>
 Examples <https://github.com/AW1534/BES-examples>
 ```

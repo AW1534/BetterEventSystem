@@ -7,11 +7,11 @@ you should then go to the [API reference](/reference.md) to extend the functiona
 ```
 
 ## Installation
-Installation is simple. just install `BetterEventSystem` From your nuget package manager.
+Installation is simple. just install `Addikted.BetterEventSystem` From your nuget package manager.
 
 ## Usage
 ```{note}
-before you start using BetterEventSystem, you need to add the `BetterEventSystem` namespace to your project.
+before you start using BetterEventSystem, you need to add the `Addikted.BetterEventSystem` namespace to your project.
 ```
 
 ---

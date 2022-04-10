@@ -16,16 +16,16 @@ all the following properties and methods are available in the `Event.` class.
 ---
 
 ### Methods
-| **Name**            | **Return Type** | **Parameters**                                    | **Description**                                                                                    |
-|---------------------|-----------------|---------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| AddListener         | `void`          | `Action<EventArgs>` listener                      | Add a listener to the Event                                                                        |
-| RemoveListener      | `void`          | `Action<EventArgs>` listener                      | Remove a listener from the event                                                                   |
-| Addpreprocessor       | `void`          | `Action<EventArgs, Action<EventArgs>>` preprocessor | Add a preprocessor to the event                                                                      |
-| Removepreprocessor    | `void`          | `Action<EventArgs, Action<EventArgs>>` preprocessor | Remove a preprocessor from the event                                                                 |
-| RemoveAllListeners  | `void`          | N/A                                               | Remove all listeners from the event                                                                |
-| RemoveAllpreprocessor | `void`          | N/A                                               | Remove all preprocessor from the event                                                               |
-| RemoveAll           | `void`          | N/A                                               | Remove all listeners and preprocessor                                                                |
-| Broadcast           | `void`          | `object` data = null                              | Broadcast the event to all listeners, passing the data to all inside the `EventArgs.data` property |
+| **Name**               | **Return Type** | **Parameters**                                      | **Description**                                                                                                                        |
+|------------------------|-----------------|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| AddListener            | `void`          | `Action<EventArgs>` listener                        | Add a listener to the Event                                                                                                            |
+| RemoveListener         | `void`          | `Action<EventArgs>` listener                        | Remove a listener from the event                                                                                                       |
+| AddPreprocessor        | `void`          | `Action<EventArgs, Action<EventArgs>>` preprocessor | Add a preprocessor to the event                                                                                                        |
+| RemovePreprocessor     | `void`          | `Action<EventArgs, Action<EventArgs>>` preprocessor | Remove a preprocessor from the event                                                                                                   |
+| RemoveAllListeners     | `void`          | N/A                                                 | Remove all listeners from the event                                                                                                    |
+| RemoveAllPreprocessors | `void`          | N/A                                                 | Remove all preprocessor from the event                                                                                                 |
+| RemoveAll              | `void`          | N/A                                                 | Remove all listeners and preprocessor                                                                                                  |
+| Broadcast              | `EventArgs`     | `object` data = null                                | Broadcast the event to all listeners, passing the data to all inside the `EventArgs.data` property, returns the final EventArgs object |
 ---
 
 ### Properties
@@ -40,13 +40,29 @@ It is a static class that contains all the events and their listeners.
 The following properties and methods are available in the `EventSystem.` class.
 
 ### Methods
-| **Name**  | **Return Type** | **Parameters**                    | **Description**                                            |
-|-----------|-----------------|-----------------------------------|------------------------------------------------------------|
-| Get Event | `Event`         | `String` name, `bool` safe = true | Get an event by name, creating the event if `safe` is true |
-| Register  | `Event`         | `Event` event                     | Register an event                                          |
+| **Name** | **Return Type** | **Parameters**                    | **Description**                                            |
+|----------|-----------------|-----------------------------------|------------------------------------------------------------|
+| GetEvent | `Event`         | `String` name, `bool` safe = true | Get an event by name, creating the event if `safe` is true |
+| Register | `Event`         | `Event` event                     | Register an event                                          |
 ---
 
 ### Properties
 | **Name** | **Type**      | **Description**          |
 |----------|---------------|--------------------------|
 | Events   | `List<Event>` | A list of all the events |
+
+## Event Args
+The `EventArgs` class allows you to pass data to listeners.
+
+### Methods
+| **Name** | **Return Type** | **Parameters**       | **Description** |
+|----------|-----------------|----------------------|--|
+| cancel   | `void`          | `bool` cancel = true | cancel the execution of the layers. [learn more](./help.md)|
+
+---
+
+### Properties
+| **Name** | **Type** | **Description**                                                                   |
+|----------|----------|-----------------------------------------------------------------------------------|
+| data     | `object` | contains the data sent to the broadcast method, can be modified during middleware |
+
