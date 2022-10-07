@@ -3,7 +3,7 @@
 
 // override ctrl + f command
 document.addEventListener("keydown", function(e) {
-    if (e.keyCode === 70 && e.ctrlKey) {
+    if (e.code === "KeyF" && e.ctrlKey) {
         e.preventDefault(); // cancel default behavior
         let navigation = document.getElementById("__navigation") // get the navigation element
 
@@ -12,7 +12,7 @@ document.addEventListener("keydown", function(e) {
             setTimeout(() => document.getElementById('search-input').focus(), 50);
 
             document.addEventListener("keydown", function(e) {
-                if (e.keyCode === 27) { // if the escape key is pressed, hide the navigation
+                if (e.ctrlKey) { // if the escape key is pressed, hide the navigation
                     document.getElementById("__navigation").checked = true;
                 }
             },  { once: true }); // only listen to this event once since it will be redundant after the first time

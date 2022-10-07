@@ -1,5 +1,5 @@
-sphinx==4.4.0
-myst-parser==0.17.0
+sphinx==5.2.3
+myst-parser
 sphinx-book-theme
 sphinx-copybutton
 sphinx-panels
