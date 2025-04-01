@@ -2,8 +2,10 @@ name: Publish NuGet Package
 
 on:
   push:
+    branches:
+      - main  # Runs on main branch pushes
     tags:
-      - 'v*'  # Runs only when a new version tag (e.g., v1.2.3) is pushed
+      - 'v*'  # Also runs when a version tag is pushed
 
 jobs:
   publish:
@@ -22,18 +24,18 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Extract version from tag
+      - name: Extract version from .csproj
         id: version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        run: echo "VERSION=$(grep -oPm1 '(?<=<Version>)[^<]+' *.csproj)" >> $GITHUB_ENV
 
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
       - name: Pack NuGet Package (Addikted.BetterEventSystem)
-        run: dotnet pack --configuration Release -p:PackageId=Addikted.BetterEventSystem -p:Version=${{ env.VERSION }} --no-build --output .
+        run: dotnet pack --configuration Release -p:PackageId=Addikted.BetterEventSystem --no-build --output .
 
       - name: Pack NuGet Package (BetterEventSystem)
-        run: dotnet pack --configuration Release -p:PackageId=BetterEventSystem -p:Version=${{ env.VERSION }} --no-build --output .
+        run: dotnet pack --configuration Release -p:PackageId=BetterEventSystem --no-build --output .
 
       - name: Publish Addikted.BetterEventSystem to NuGet
         run: dotnet nuget push Addikted.BetterEventSystem.${{ env.VERSION }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
